@@ -1,6 +1,7 @@
 # PRÁCTICA 5 - USO DE SEMÁFOROS
 
 **Nombres:** Karely Bombón, Jhon Tiupul, Fidel Quilumba, Jhoan Sasnalema
+
 **Fecha:** 18-05-2026
 
 ## OBJETIVOS
