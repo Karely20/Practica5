@@ -6,20 +6,20 @@ Este módulo implementa el uso de semáforos POSIX (`semaphore.h`) para resolver
 
 Para esta sección, se evaluó la eficacia del semáforo binario incrementando el valor de `MAX` a escalas masivas. A diferencia del ejercicio anterior, aquí la sincronización es forzada por software:
 
-### 1. Prueba con MAX = 1e6 (1,000,000)
+### 1. Prueba con MAX = 1e6 (1000000)
 El programa se ejecuta de forma casi instantánea, devolviendo un valor exacto debido a la protección de la región crítica.
 * **Resultado:** `a = 0`
-![Resultado 1e6](1e6.png)
+![Resultado 1e6](1000000..jpeg)
 
-### 2. Prueba con MAX = 1e9 (1,000,000,000)
+### 2. Prueba con MAX = 1e9 (1000000000)
 Al procesar mil millones de iteraciones, se observa un incremento en el tiempo de ejecución (aproximadamente 15-20 segundos). Esto se debe al "overhead" o sobrecarga que genera el sistema operativo al bloquear y desbloquear el semáforo mil millones de veces.
 * **Resultado:** `a = 0`
-![Resultado 1e9](1e9.png)
+![Resultado 1e9](1000000000.jpeg)
 
-### 3. Prueba con MAX = 1e12 (1,000,000,000,000)
+### 3. Prueba con MAX = 1e12 (1000000000000)
 En la escala de un billón de iteraciones, el tiempo de espera es considerablemente mayor (varios minutos), sin embargo, la precisión aritmética se mantiene íntegra.
 * **Resultado:** `a = 0`
-![Resultado 1e12](1e12.png)
+![Resultado 1e12](1000000000000.jpeg)
 
 ---
 
