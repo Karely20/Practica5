@@ -9,7 +9,7 @@ Para esta sección, se evaluó la eficacia del semáforo binario incrementando e
 ### 1. Prueba con MAX = 1e6 (1000000)
 El programa se ejecuta de forma casi instantánea, devolviendo un valor exacto debido a la protección de la región crítica.
 * **Resultado:** `a = 0`
-![Resultado 1e6](1000000..jpeg)
+![Resultado 1e6](1000000...jpeg)
 
 ### 2. Prueba con MAX = 1e9 (1000000000)
 Al procesar mil millones de iteraciones, se observa un incremento en el tiempo de ejecución (aproximadamente 15-20 segundos). Esto se debe al "overhead" o sobrecarga que genera el sistema operativo al bloquear y desbloquear el semáforo mil millones de veces.
