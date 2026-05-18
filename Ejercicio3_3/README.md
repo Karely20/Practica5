@@ -10,7 +10,7 @@ A diferencia de los laboratorios anteriores que solo usaban dos flujos, en este 
 En la primera parte del código declaramos la lógica de control, la variable para la lectura del semáforo y la inicialización del recurso.
 * **Comentarios documentados:** Se especificaron las líneas donde se aumenta la variable para identificar al `hilo3`, la creación del mismo para que empiece a correr en paralelo, y la espera obligatoria con `pthread_join` para que no se cierre el programa antes de tiempo.
 * **Estructura inicial en el editor:**
-![Inicio del código fuente en nano](codigo1.jpeg)
+![Inicio del código fuente en nano](treshilos1.jpeg)
 
 ### 2. Monitoreo del Estado del Semáforo
 Justo después de lanzar los tres hilos, utilizamos la función `sem_getvalue(&s, &valor_semaforo)` para leer qué valor tiene el semáforo en ese microsegundo y lo imprimimos con un `printf`. Esto sirve para ver si el recurso está libre (`1`) o si algún hilo ya lo bloqueó (`0`).
@@ -18,7 +18,7 @@ Justo después de lanzar los tres hilos, utilizamos la función `sem_getvalue(&s
 ### 3. Implementación del Tercer Hilo
 Aumentamos una función completa llamada `funcion_hilo3`. La lógica mantiene las mismas directivas de seguridad usando `sem_wait(&s)` al entrar para pedir permiso y bloquear el acceso, y `sem_post(&s)` al salir para avisar que la variable queda libre. La diferencia es que este flujo realiza una operación de suma doble (`a += 2`) en cada vuelta del bucle.
 * **Lógica del tercer hilo en el editor:**
-![Final del código fuente en nano](codigo2.jpeg)
+![Final del código fuente en nano](treshilos2.jpeg)
 
 ---
 
@@ -30,7 +30,7 @@ Al compilar el archivo con soporte para hilos (`-lpthread`) y ejecutarlo en el s
 * **El valor final de a es:** `200000`
 
 * **Evidencia de compilación y ejecución:**
-![Resultado de la ejecución en la terminal](resultado.jpeg)
+![Resultado de la ejecución en la terminal](treshilos3.jpeg)
 
 ### ¿Por qué obtuvimos este resultado matemático?
 El comportamiento es completamente correcto y demuestra la efectividad de la exclusión mutua:
