@@ -22,3 +22,10 @@ Mecanismo de sincronización que protege una sección crítica.
     int sem_post(sem_t *sem);
 ### Librería a utilizar
     #include <semaphore.h>
+
+## CONTENIDO
+1. Código sin semáforos
+2. Código con semáforos
+3. Código con 3 hilos e impresión de semáforo
+4. Código con semáforo. Variable color de texto
+5. Código con mutex
