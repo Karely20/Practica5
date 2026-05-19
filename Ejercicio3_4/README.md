@@ -33,11 +33,11 @@ Tomar como base el código de la Figura 3 propuesto y añadir un semáforo que p
 
 - Este programa demuestra cómo dos hilos pueden acceder a un recurso compartido: el estado de color de la terminal. 
 
-*Al ejercutar el código de la Figura 3 obtuvimos lo siguiente:*
+*Ejecución del código de la Figura 3*
 
 <img width="407" height="75" alt="Captura de pantalla 2026-05-18 183601" src="https://github.com/user-attachments/assets/20bdc88b-ed20-4c71-bcae-ab671e0bfd56" />
 
-De esta forma se puede comprobar que sin una sincronización los hilos pueden ejecutar al mismo tiempo y, por lo tanto, ambos pueden cambiar el color de la terminal simultáneamente. 
+Se puede comprobar que sin una sincronización los hilos pueden ejecutar al mismo tiempo y, por lo tanto, ambos pueden cambiar el color de la terminal simultáneamente. 
 
 Aunque los mensajes impresos por los hilos mantienen su color esperado, se puede observar el problema cuando finaliza la ejecución: después de imprimir el texto AZUL, la línea del sistema también aparece en azul. Esto se debe a que el programa no restablece adecuadamente el color de la consola antes de terminar.
 
@@ -55,3 +55,23 @@ Lo que significa que:
 
 Así se asegura que no haya errores al momento de cambiar el color e imprimir el resultado.
 
+### Funcionamiento de los hilos
+- Hilo rojo
+  
+        sem_wait(&sem_color);
+        printf(ROJO_ANSI "Este texto es ROJO! \n");
+        printf(RESET_ANSI);
+        sem_post(&sem_color);
+  
+- Hilo verde
+
+      sem_wait(&sem_color);
+        printf(VERDE_ANSI "Este texto es VERDE! \n");
+        printf(RESET_ANSI);
+        sem_post(&sem_color);
+
+Con las modificaciones, ambos hilos tienen las mismas funcionalidades:
+- Esperan su turno
+- Imprimen en su color
+- Restauran el color por defecto
+- Sueltan el semáforo
