@@ -65,9 +65,13 @@ Es por ello que se implementa `mutex`. Al utilizarlo:
 - Los dos hilos modifican a de manera ordenada.
 - El resultado final es 0, garantizado y determinístico.
 
+Del mismo modo que en este ejemplo el `mutex` protege la integridad de la variable `a`, en la modificación realizada al código de la Figura 3, el `mutex` cumple la misma misión fundamental: evitar que dos hilos alteren simultáneamente un recurso compartido, que en ese caso no es un número, sino el estado de color de la terminal.
 
+*Ejecución de la Figura 3 modificada con mutex:*
 
+<img width="235" height="54" alt="Captura de pantalla 2026-05-18 192536" src="https://github.com/user-attachments/assets/f8c0f7b0-ed39-4f8b-b97b-13bbd76a4d46" />
 
-El estado de color de la terminal, que normalmente puede corromperse si múltiples hilos intentan imprimir con diferentes códigos ANSI al mismo tiempo.
+Al introducir un `mutex` en este ejercicio, se garantiza que solo un hilo a la vez pueda modificar el color, lo que evita interrupciones inesperadas. 
 
-Para este ejercicio se ha modificado el código base de la Figura 4 en función al ejercicio planeteado anteriormente.
+Inicialmente, al ser la terminal un recurso compartido, cuando dos hilos imprimen texto con códigos ANSI al mismo tiempo sus mensajes pueden mezclarse o los caracteres pueden intercalarse de forma aleatoria. Sin embargo, con la sincronización con mutex, el cambio de color se realiza de manera segura, controlada y sin inconsistencias, demostrando cómo un recurso compartido requiere protección cuando intervienen múltiples hilos.
+
