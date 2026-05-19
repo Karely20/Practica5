@@ -35,7 +35,8 @@ Este programa demuestra cómo dos hilos pueden acceder a un recurso compartido: 
 Para evitar que los mensajes se impriman mezclados o con colores incorrectos, se utiliza un semáforo (`sem_t`) que sincroniza el acceso a la variable que define el color del texto.
 
 Al ejercutar el código de la Figura 3 obtuvimos lo siguiente:
-![Uploading Captura de pantalla 2026-05-18 183601.png…]()
+
+<img width="407" height="75" alt="Captura de pantalla 2026-05-18 183601" src="https://github.com/user-attachments/assets/20bdc88b-ed20-4c71-bcae-ab671e0bfd56" />
 
 De esta forma se puede comprobar que sin una sincronización los hilos pueden ejecutar al mismo tiempo y, por lo tanto, ambos pueden cambiar el color de la terminal simultáneamente. Aunque los mensajes impresos por los hilos mantienen su color esperado, se puede observar el problema cuando finaliza la ejecución: después de imprimir el texto AZUL, la línea del sistema también aparece en azul. Esto se debe a que el programa no restablece adecuadamente el color de la consola antes de terminar.
 
