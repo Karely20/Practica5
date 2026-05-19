@@ -58,20 +58,24 @@ Así se asegura que no haya errores al momento de cambiar el color e imprimir el
 ### Funcionamiento de los hilos
 - Hilo rojo
   
-        sem_wait(&sem_color);
-        printf(ROJO_ANSI "Este texto es ROJO! \n");
-        printf(RESET_ANSI);
-        sem_post(&sem_color);
+      sem_wait(&sem_color);
+      printf(ROJO_ANSI "Este texto es ROJO! \n");
+      printf(RESET_ANSI);
+      sem_post(&sem_color);
   
 - Hilo verde
 
       sem_wait(&sem_color);
-        printf(VERDE_ANSI "Este texto es VERDE! \n");
-        printf(RESET_ANSI);
-        sem_post(&sem_color);
+      printf(VERDE_ANSI "Este texto es VERDE! \n");
+      printf(RESET_ANSI);
+      sem_post(&sem_color);
 
 Con las modificaciones, ambos hilos tienen las mismas funcionalidades:
 - Esperan su turno
 - Imprimen en su color
 - Restauran el color por defecto
 - Sueltan el semáforo
+
+Tras la ejecución de los hilos rojo y verde, en el `Main` se imprime el mensaje azul, sin embargo, en este punto no es necesario utilizar semáforos ya que no eiste concurrencia. Por lo tanto, el resultado que aparece es:
+
+<img width="410" height="69" alt="Captura de pantalla 2026-05-18 184834" src="https://github.com/user-attachments/assets/89fb204e-03da-4a92-95df-8349858e7650" />
