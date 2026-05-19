@@ -28,4 +28,4 @@ Tomar como base el código de la Figura 3 propuesto y añadir un semáforo que p
     return 0;
     }
 Este programa demuestra cómo dos hilos pueden acceder a un recurso compartido: el estado de color de la terminal. 
-Para evitar que los mensajes se impriman mezclados o con colores incorrectos, se utiliza un semáforo (~sem_t~) que sincroniza el acceso.
+Para evitar que los mensajes se impriman mezclados o con colores incorrectos, se utiliza un semáforo (´sem_t´) que sincroniza el acceso.
